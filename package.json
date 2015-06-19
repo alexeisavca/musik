@@ -1,0 +1,24 @@
+{
+  "name": "musik",
+  "version": "0.0.1",
+  "description": "A music player for React.js inspired by Amarok(before it went to shit)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexeisavca/musik.git"
+  },
+  "keywords": [
+    "react",
+    "player",
+    "amarok"
+  ],
+  "author": "Alexei Savca",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexeisavca/musik/issues"
+  },
+  "homepage": "https://github.com/alexeisavca/musik"
+}
