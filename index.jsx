@@ -5,7 +5,7 @@ class Musik extends React.Component{
     render(){
         return (
             <div className="row">
-                <div className="col-md-1">
+                <div className="col-md-1 col-sm-1">
                     <ul className="nav nav-pills nav-stacked">
                         <li>
                             <a href="javascript:void(0);">
@@ -16,10 +16,10 @@ class Musik extends React.Component{
                         </li>
                     </ul>
                 </div>
-                <div className="col-md-2">
+                <div className="col-md-2 col-sm-5">
                     here be library
                 </div>
-                <div className="col-md-9">
+                <div className="col-md-9 col-sm-6">
                     <div className="row">
                         <ul className="nav nav-tabs">
                             <li className="active">
