@@ -9,7 +9,8 @@ module.exports = {
     },
     module: {
         loaders: [
-            { test: /\.jsx?$/, loaders: ['jsx?harmony'] }
+            { test: /\.jsx?$/, loaders: ['jsx?harmony'] },
+            { test: /\.less$/, loader: "style!css!less?strictMath&noIeCompat" }
         ]
     },
     resolve: {
