@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/alexeisavca/musik/issues"
   },
-  "homepage": "https://github.com/alexeisavca/musik"
+  "homepage": "https://github.com/alexeisavca/musik",
+  "dependencies": {
+    "react": "^0.13.3"
+  }
 }
