@@ -1,12 +1,11 @@
 var path = require('path');
 module.exports = {
     entry: {
-        main: "./entry.jsx"
+        main: "./index.jsx"
     },
     output: {
         path: './',
-        filename: "index.js",
-        libraryTarget: 'commonjs2'
+        filename: "index.js"
     },
     module: {
         loaders: [
