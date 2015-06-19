@@ -7,3 +7,5 @@ class Musik extends React.Component{
         )
     }
 }
+
+React.render(<Musik/>, document.getElementById('the-container'));
