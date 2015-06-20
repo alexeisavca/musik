@@ -1,20 +1,13 @@
 var React = require('react');
 var __ = require('./tools/translate');
+var MainNavigation = require("./components/main-navigation");
 module.exports = Musik;
 class Musik extends React.Component{
     render(){
         return (
             <div className="row">
                 <div className="col-md-1 col-sm-1">
-                    <ul className="nav nav-pills nav-stacked">
-                        <li>
-                            <a href="javascript:void(0);">
-                                <i className="glyphicon glyphicon-music"></i>
-                                &nbsp;
-                                {__('Music')}
-                            </a>
-                        </li>
-                    </ul>
+                    <MainNavigation/>
                 </div>
                 <div className="col-md-2 col-sm-5">
                     here be library
