@@ -1,8 +1,7 @@
 var React = require('react');
 var __ = require('./tools/translate');
 var MainNavigation = require("./components/main-navigation");
-module.exports = Musik;
-class Musik extends React.Component{
+module.exports = class extends React.Component{
     render(){
         return (
             <div className="row">
@@ -38,4 +37,4 @@ class Musik extends React.Component{
             </div>
         )
     }
-}
+};

@@ -1,17 +1,16 @@
 var React = require('react');
 var __ = require('../../tools/translate');
+var Item = require('./item');
+
 module.exports = class extends React.Component{
     render(){
         return (
-            <ul className="nav nav-pills nav-stacked">
-                <li>
-                    <a href="javascript:void(0);">
-                        <i className="glyphicon glyphicon-music"></i>
-                        &nbsp;
-                        {__('Music')}
-                    </a>
-                </li>
-            </ul>
+            <div className="list-group musik-main-navigation">
+                <Item icon="music" label={__('Music')}/>
+                <Item icon="book" label={__('Audio books')}/>
+                <Item icon="education" label={__('Audio lessons')}/>
+                <Item icon="plus" label={__('Add a library')}/>
+            </div>
         )
     }
 };
