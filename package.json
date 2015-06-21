@@ -27,6 +27,7 @@
   "devDependencies": {
     "classnames": "^2.1.2",
     "css-loader": "^0.15.1",
+    "immutable": "^3.7.4",
     "jsx-loader": "^0.13.2",
     "less": "^2.5.1",
     "less-loader": "^2.2.0",
