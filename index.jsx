@@ -2,16 +2,17 @@ var React = require('react');
 var __ = require('./tools/translate');
 var MainNavigation = require("./components/main-navigation");
 var Playlist = require('./components/playlist');
+var Library = require('./components/placeholder')('library');
 module.exports = Musik;
 class Musik extends React.Component{
     render(){
         return (
             <div className="row">
                 <div className="col-md-1 col-sm-1">
-                    <MainNavigation libraries={this.props.libraries} currentLibrary={this.props.currentLibrary}/>
+                    <MainNavigation libraries={this.props.libraries} currentItem={this.props.currentMainNavigationItem}/>
                 </div>
                 <div className="col-md-2 col-sm-5">
-                    here be library
+                    <Library/>
                 </div>
                 <div className="col-md-9 col-sm-6">
                     <div className="row">
@@ -36,4 +37,7 @@ class Musik extends React.Component{
             </div>
         )
     }
+}
+Musik.propTypes = {
+
 };
