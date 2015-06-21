@@ -6,23 +6,27 @@ require('./style');
 
 module.exports = MainNavigation;
 class MainNavigation extends React.Component{
+    isActive(slug){ return slug == this.props.currentItem; }
+
     render(){
         return (
             <div className="musik-main-navigation">
-                {this.props.libraries.map((library, key) => (
+                <Item icon="search" slug="search" label={__('Search')} active={this.isActive('search')}/>
+                {this.props.libraries.map(library => (
                     <Item
                         icon={library.get('icon')}
                         label={library.get('label')}
-                        key={key}
-                        active={key == this.props.currentLibrary}
+                        slug={library.get('slug')}
+                        key={library.get('slug')}
+                        active={this.isActive(library.get('slug'))}
                     />
                 ))}
-                <Item icon="plus" label={__('Add a library')}/>
+                <Item icon="plus" slug="add-library" label={__('Add a library')} active={this.isActive('add-library')}/>
             </div>
         )
     }
 };
 MainNavigation.propTypes = {
     libraries: React.PropTypes.instanceOf(List).isRequired,
-    currentLibrary: React.PropTypes.number.isRequired
+    currentItem: React.PropTypes.string.isRequired
 };
