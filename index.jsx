@@ -86,7 +86,4 @@ React.render(
         libraries={libraries}
         currentLibrary={0}
     />, document.getElementById('the-container')
-);}
-Musik.propTypes = {
-
-};
+);
