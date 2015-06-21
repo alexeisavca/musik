@@ -60,4 +60,5 @@ React.render(
     <module.exports
         libraries={libraries}
         currentLibrary={0}
-        />, document.getElementById('the-container'));
+    />, document.getElementById('the-container')
+);
