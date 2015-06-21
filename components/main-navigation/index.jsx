@@ -1,16 +1,26 @@
 var React = require('react');
 var __ = require('../../tools/translate');
 var Item = require('./item');
+require('./style');
 
-module.exports = class extends React.Component{
+module.exports = MainNavigatio;
+class MainNavigation extends React.Component{
     render(){
         return (
-            <div className="list-group musik-main-navigation">
-                <Item icon="music" label={__('Music')}/>
-                <Item icon="book" label={__('Audio books')}/>
-                <Item icon="education" label={__('Audio lessons')}/>
+            <div className="musik-main-navigation">
+                {this.props.libraries.map((library, key) => (
+                    <Item
+                        icon={library.get('icon')}
+                        label={library.get('label')}
+                        key={key}
+                        active={key == this.props.currentLibrary}
+                    />
+                ))}
                 <Item icon="plus" label={__('Add a library')}/>
             </div>
         )
     }
 };
+MainNavigation.propTypes = {
+
+}
