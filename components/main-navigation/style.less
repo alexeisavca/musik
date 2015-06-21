@@ -5,7 +5,7 @@
     padding: 5px;
     border: 0 solid #aaa;
     border-right-width: 1px;
-    &:last-child{
+    &:last-child:not(.active){
       border-bottom: none;
     }
     &.active{
@@ -13,9 +13,9 @@
       border-width: 1px;
       border-right-width: 0;
     }
-  h6{
-  margin-bottom: 0;
-  }
+    h6{
+      margin-bottom: 0;
+    }
   }
   .glyphicon{
     font-size: 2rem;
