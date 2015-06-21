@@ -19,7 +19,7 @@ class MainNavigation extends React.Component{
 
     render(){
         return (
-            <div className="musik-main-navigation">
+            <div className="col-md-1 col-sm-1 musik-main-navigation">
                 <Item icon="search" slug="search" label={__('Search')} active={this.isActive('search')}/>
                 {this.props.libraries.map(library => (
                     <Item
