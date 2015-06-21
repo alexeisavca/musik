@@ -1,13 +1,13 @@
 var React = require('react');
+var cn = require('classnames');
 module.exports = MainNavigationItem;
 class MainNavigationItem extends React.Component {
     render() {
         return (
-            <button className="list-group-item">
+            <div className={cn({active: this.props.active})}>
                 <i className={`glyphicon glyphicon-${this.props.icon}`}></i>
-                &nbsp;
-                {this.props.label}
-            </button>
+                <h6>{this.props.label}</h6>
+            </div>
         )
     }
 }
