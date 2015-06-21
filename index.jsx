@@ -44,15 +44,39 @@ var {List, Map} = require('immutable');
 var libraries = List([
     Map({
         label: 'Music',
-        icon: 'music'
+        icon: 'music',
+        slug: 'music',
+        tracks: List([
+            Map({
+                artist: 'Pepper, New Beat Fund',
+                album: 'Every Little Thing',
+                track: 1,
+                title: 'Every Little Thing',
+                url: 'tracks/Summertime Party Jamz/01 Every Little Thing.mp3'
+            }),
+            Map({
+                artist: 'New Beat Fund',
+                album: 'Sponge Fingerz',
+                title: 'Halloween Birthdaze',
+                url: 'tracks/Summertime Party Jamz/Halloween Birthdaze.mp3'
+            }),
+            Map({
+                artist: 'New Beat Fund',
+                album: 'Sponge Fingerz',
+                title: 'Sunday Funday',
+                url: 'tracks/Summertime Party Jamz/Sunday Funday.mp3'
+            })
+        ])
     }),
     Map({
         label: 'Audio books',
-        icon: 'book'
+        icon: 'book',
+        slug: 'audiobooks'
     }),
     Map({
         label: 'Audio lessons',
-        icon: 'education'
+        icon: 'education',
+        slug: 'audiolessons'
     })
 ]);
 
