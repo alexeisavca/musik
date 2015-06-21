@@ -1,9 +1,10 @@
 var React = require('react');
 var __ = require('../../tools/translate');
 var Item = require('./item');
+var {List} = require('immutable');
 require('./style');
 
-module.exports = MainNavigatio;
+module.exports = MainNavigation;
 class MainNavigation extends React.Component{
     render(){
         return (
@@ -22,5 +23,6 @@ class MainNavigation extends React.Component{
     }
 };
 MainNavigation.propTypes = {
-
-}
+    libraries: React.PropTypes.instanceOf(List).isRequired,
+    currentLibrary: React.PropTypes.number.isRequired
+};
