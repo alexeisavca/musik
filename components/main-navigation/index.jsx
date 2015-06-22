@@ -6,11 +6,20 @@ require('./style');
 
 module.exports = MainNavigation;
 class MainNavigation extends React.Component{
-    isActive(slug){ return slug == this.props.currentItem; }
+    getCurrentItemSlug (){
+        var {libraries, currentItem} = this.props;
+        if(libraries.some(library => library.get('slug') == currentItem) || 'add-library' == currentItem){
+            return currentItem;
+        } else {
+            return 'search';
+        }
+    }
+
+    isActive(slug){ return slug == this.getCurrentItemSlug(); }
 
     render(){
         return (
-            <div className="musik-main-navigation">
+            <div className="col-md-1 col-sm-1 musik-main-navigation">
                 <Item icon="search" slug="search" label={__('Search')} active={this.isActive('search')}/>
                 {this.props.libraries.map(library => (
                     <Item
