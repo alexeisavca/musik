@@ -1,6 +1,7 @@
 var React = require('react');
 var Box = require('./index');
-module.exports = class extends Box {
+module.exports = AddLibraryBox;
+class AddLibraryBox extends Box {
     getFilterForm (){ return null }
 
     render() {
@@ -10,4 +11,5 @@ module.exports = class extends Box {
             </form>
         )
     }
-};
+}
+delete AddLibraryBox.propTypes.library;
