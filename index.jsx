@@ -33,6 +33,7 @@ class Musik extends React.Component{
                 <MainNavigation
                     libraries={this.props.libraries}
                     currentItem={this.props.currentMainNavigationItem}
+                    setMainNavigation={this.props.actions.setMainNavigation}
                     actions={this.props.actions}
                 />
                 {this.getMainNavigationBox()}
@@ -51,4 +52,11 @@ class Musik extends React.Component{
         )
     }
 }
-Musik.propTypes = require('./prop-types');
+Musik.propTypes = {
+    libraries: React.PropTypes.instanceOf(List),
+    currentMainNavigationItem: React.PropTypes.string,
+    boxFilter: React.PropTypes.string,
+    actions: React.PropTypes.shape({
+        setMainNavigation: React.PropTypes.func.isRequired
+    }).isRequired
+};
