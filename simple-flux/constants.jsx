@@ -1,0 +1,3 @@
+module.exports = {
+    CURRENT_MAIN_NAVIGATION_ITEM_CHANGED: 0
+};
