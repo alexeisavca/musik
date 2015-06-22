@@ -7,6 +7,8 @@ var AddLibraryBox = require('./components/box/add-library');
 var LibraryBox = require('./components/box/library');
 var {List, Map} = require('immutable');
 var PlaylistNavigation = require('./components/playlist-navigation');
+var Player = require('./components/placeholder')('player');
+var SimpleFlux = require('./simple-flux');
 module.exports = Musik;
 class Musik extends React.Component{
     getMainNavigationBox(){
@@ -28,7 +30,11 @@ class Musik extends React.Component{
     render(){
         return (
             <div className="row">
-                <MainNavigation libraries={this.props.libraries} currentItem={this.props.currentMainNavigationItem}/>
+                <MainNavigation
+                    libraries={this.props.libraries}
+                    currentItem={this.props.currentMainNavigationItem}
+                    actions={this.props.actions}
+                />
                 {this.getMainNavigationBox()}
                 <div className="col-md-9 col-sm-6">
                     <div className="row">
@@ -36,14 +42,13 @@ class Musik extends React.Component{
                         <div className="col-md-12">
                             <Playlist/>
                         </div>
+                        <div className="col-md-12">
+                            <Player/>
+                        </div>
                     </div>
                 </div>
             </div>
         )
     }
 }
-Musik.propTypes = {
-    libraries: React.PropTypes.instanceOf(List),
-    currentMainNavigationItem: React.PropTypes.string,
-    boxFilter: React.PropTypes.string
-};
+Musik.propTypes = require('./prop-types');
