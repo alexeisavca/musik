@@ -77,18 +77,20 @@ var libraries = List([
     Map({
         label: 'Audio books',
         icon: 'book',
-        slug: 'audiobooks'
+        slug: 'audiobooks',
+        tracks: List()
     }),
     Map({
         label: 'Audio lessons',
         icon: 'education',
-        slug: 'audiolessons'
+        slug: 'audiolessons',
+        tracks: List()
     })
 ]);
 
 React.render(
     <module.exports
         libraries={libraries}
-        currentLibrary={0}
+        currentMainNavigationItem="add-library"
     />, document.getElementById('the-container')
 );
