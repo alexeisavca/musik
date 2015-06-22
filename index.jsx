@@ -4,16 +4,24 @@ var MainNavigation = require("./components/main-navigation");
 var Playlist = require('./components/playlist');
 var SearchBox = require('./components/box/search');
 var AddLibraryBox = require('./components/placeholder')('add library box');
-var LibraryBox = require('./components/placeholder')('library box');
+var LibraryBox = require('./components/box/library');
+var {List, Map} = require('immutable');
+var PlaylistNavigation = require('./components/playlist-navigation');
 module.exports = Musik;
 class Musik extends React.Component{
     getMainNavigationBox(){
-        if(this.props.libraries.some(library => library.get('slug') == this.props.currentMainNavigationItem)){
-            return <LibraryBox/>;
-        } else if('add-library' == this.props.currentMainNavigationItem){
+        var {libraries, currentMainNavigationItem, boxFilter} = this.props;
+        if(libraries.some(library => library.get('slug') == currentMainNavigationItem)){
+            return (
+                <LibraryBox
+                    filter={boxFilter}
+                    library={libraries.find(library => library.get('slug') == currentMainNavigationItem)}
+                />
+            );
+        } else if('add-library' == currentMainNavigationItem){
             return <AddLibraryBox/>;
         } else {
-            return <SearchBox/>
+            return <SearchBox filter={boxFilter}/>
         }
     }
 
@@ -24,19 +32,7 @@ class Musik extends React.Component{
                 {this.getMainNavigationBox()}
                 <div className="col-md-9 col-sm-6">
                     <div className="row">
-                        <div className="col-md-12">
-                            <ul className="nav nav-tabs">
-                                <li>&nbsp;</li>
-                                <li className="active">
-                                    <a href="#">Playlist #1</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">
-                                        <i className="glyphicon glyphicon-plus"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                        <PlaylistNavigation/>
                         <div className="col-md-12">
                             <Playlist/>
                         </div>
@@ -47,5 +43,7 @@ class Musik extends React.Component{
     }
 }
 Musik.propTypes = {
-
+    libraries: React.PropTypes.instanceOf(List),
+    currentMainNavigationItem: React.PropTypes.string,
+    boxFilter: React.PropTypes.string
 };
