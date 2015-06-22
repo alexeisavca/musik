@@ -33,8 +33,7 @@ class Musik extends React.Component{
                 <MainNavigation
                     libraries={this.props.libraries}
                     currentItem={this.props.currentMainNavigationItem}
-                    setMainNavigation={this.props.actions.setMainNavigation}
-                    actions={this.props.actions}
+                    setMainNavigation={this.props.actions.setMainNavigation.bind(this.props.actions)}
                 />
                 {this.getMainNavigationBox()}
                 <div className="col-md-9 col-sm-6">
