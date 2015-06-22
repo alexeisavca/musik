@@ -100,9 +100,13 @@ var libraries = List([
     })
 ]);
 
-React.render(
-    <module.exports
-        libraries={libraries}
-        currentMainNavigationItem="add-library"
-    />, document.getElementById('the-container')
-);
+var flux = new SimpleFlux();
+flux.setOnStoreUpdateListener(function(){
+    React.render(
+        <module.exports
+            libraries={libraries}
+            currentMainNavigationItem={flux.store.getCurrentMainNavigationItem()}
+            actions={flux.actions}
+            />, document.getElementById('the-container')
+    );
+});
