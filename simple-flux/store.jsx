@@ -1,35 +1,29 @@
 var constants = require('./constants');
+var actions = {
+    [constants.CURRENT_MAIN_NAVIGATION_ITEM_CHANGED]: 'setCurrentMainNavigationItem',
+    [constants.BOX_FILTER_UPDATED]: 'setBoxFilter'
+};
 module.exports = class Store {
-    constructor(){
-        var onUpdateListener = function(){};
-        this.setOnUpdateListener = function(listener){
-            onUpdateListener = listener;
-            listener();
-        };
-
-        var currentMainNavigationItem = "search";
-        this.getCurrentMainNavigationItem = () => currentMainNavigationItem;
-        this.setCurrentMainNavigationIItem = function(newVal){
-            currentMainNavigationItem = newVal;
-            onUpdateListener();
-        };
-
-        var boxFilter;
-        this.getBoxFilter = () => boxFilter;
-        this.setBoxFilter = function(newVal){
-            boxFilter = newVal;
-            onUpdateListener();
+    createProperty (capitalizedName){
+        var value;
+        this['get' + capitalizedName] = () => value;
+        this['set' + capitalizedName] = function(newVal){
+            value = newVal;
+            this.getOnUpdateListener()();
         }
     }
 
+    constructor(){
+        ['OnUpdateListener', 'CurrentMainNavigationItem', 'BoxFilter', 'Libraries'].forEach(this.createProperty.bind(this));
+        this.setOnUpdateListener(function(){});
+        this.setCurrentMainNavigationItem('search');
+    }
+
     process(action, payload){
-        switch(action){
-            case constants.CURRENT_MAIN_NAVIGATION_ITEM_CHANGED:
-                this.setCurrentMainNavigationIItem(payload);
-                break;
-            case constants.BOX_FILTER_UPDATED:
-                this.setBoxFilter(payload);
-                break;
+        if('undefined' != typeof actions[action]){
+            this[actions[action]](payload);
+        } else {
+            console.warn(`No handler for the ${action} action`);
         }
     }
 };
