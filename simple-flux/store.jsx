@@ -13,6 +13,13 @@ module.exports = class Store {
             currentMainNavigationItem = newVal;
             onUpdateListener();
         };
+
+        var boxFilter;
+        this.getBoxFilter = () => boxFilter;
+        this.setBoxFilter = function(newVal){
+            boxFilter = newVal;
+            onUpdateListener();
+        }
     }
 
     process(action, payload){

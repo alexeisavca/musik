@@ -7,4 +7,9 @@ module.exports = class Actions{
     setMainNavigation(slug){
         this.dispatch(constants.CURRENT_MAIN_NAVIGATION_ITEM_CHANGED, slug);
     }
+
+    setBoxFilter(str){
+        this.dispatch(constants.BOX_LISTENER_UPDATED, str);
+    }
+
 };
