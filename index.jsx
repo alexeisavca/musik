@@ -84,12 +84,14 @@ flux.store.setLibraries(
                 Map({
                     artist: 'New Beat Fund',
                     album: 'Sponge Fingerz',
+                    track: 1,
                     title: 'Halloween Birthdaze',
                     url: 'tracks/Summertime Party Jamz/Halloween Birthdaze.mp3'
                 }),
                 Map({
                     artist: 'New Beat Fund',
                     album: 'Sponge Fingerz',
+                    track: 2,
                     title: 'Sunday Funday',
                     url: 'tracks/Summertime Party Jamz/Sunday Funday.mp3'
                 })
@@ -99,7 +101,127 @@ flux.store.setLibraries(
             label: 'Audio books',
             icon: 'book',
             slug: 'audiobooks',
-            tracks: List()
+            tracks: List([
+                Map({
+                    artist: 'Mark Twain',
+                    album: 'Tom Sawyer',
+                    track: 1,
+                    title: 'Chapter I && II',
+                    url: 'tracks/Tom Sawyer/01-02.mp3'
+                }),
+                Map({
+                    artist: 'Mark Twain',
+                    album: 'Tom Sawyer',
+                    track: 2,
+                    title: 'Chapter III && IV',
+                    url: 'tracks/Tom Sawyer/03-04.mp3'
+                }),
+                Map({
+                    artist: 'Mark Twain',
+                    album: 'Tom Sawyer',
+                    track: 3,
+                    title: 'Chapter V && VI',
+                    url: 'tracks/Tom Sawyer/05-06.mp3'
+                }),
+                Map({
+                    artist: 'Mark Twain',
+                    album: 'Tom Sawyer',
+                    track: 4,
+                    title: 'Chapter VII && VIII',
+                    url: 'tracks/Tom Sawyer/07-08.mp3'
+                }),
+                Map({
+                    artist: 'Mark Twain',
+                    album: 'Tom Sawyer',
+                    track: 5,
+                    title: 'Chapter IX && X',
+                    url: 'tracks/Tom Sawyer/09-10.mp3'
+                }),
+                Map({
+                    artist: 'Mark Twain',
+                    album: 'Tom Sawyer',
+                    track: 6,
+                    title: 'Chapter XI && XII',
+                    url: 'tracks/Tom Sawyer/11-12.mp3'
+                }),
+                Map({
+                    artist: 'Mark Twain',
+                    album: 'Tom Sawyer',
+                    track: 7,
+                    title: 'Chapter XIII && XIV',
+                    url: 'tracks/Tom Sawyer/13-14.mp3'
+                }),
+                Map({
+                    artist: 'Mark Twain',
+                    album: 'Tom Sawyer',
+                    track: 8,
+                    title: 'Chapter XVI && XVII',
+                    url: 'tracks/Tom Sawyer/16-17.mp3'
+                }),
+                Map({
+                    artist: 'Mark Twain',
+                    album: 'Tom Sawyer',
+                    track: 9,
+                    title: 'Chapter XVIII && XIX',
+                    url: 'tracks/Tom Sawyer/18-19.mp3'
+                }),
+                Map({
+                    artist: 'Mark Twain',
+                    album: 'Tom Sawyer',
+                    track: 10,
+                    title: 'Chapter XXI && XXII',
+                    url: 'tracks/Tom Sawyer/21-22.mp3'
+                }),
+                Map({
+                    artist: 'Mark Twain',
+                    album: 'Tom Sawyer',
+                    track: 11,
+                    title: 'Chapter XXIV && XXV',
+                    url: 'tracks/Tom Sawyer/24-25.mp3'
+                }),
+                Map({
+                    artist: 'Mark Twain',
+                    album: 'Tom Sawyer',
+                    track: 12,
+                    title: 'Chapter XXVI',
+                    url: 'tracks/Tom Sawyer/26.mp3'
+                }),
+                Map({
+                    artist: 'Mark Twain',
+                    album: 'Tom Sawyer',
+                    track: 13,
+                    title: 'Chapter XXVII && XXVIII',
+                    url: 'tracks/Tom Sawyer/27-28.mp3'
+                }),
+                Map({
+                    artist: 'Mark Twain',
+                    album: 'Tom Sawyer',
+                    track: 14,
+                    title: 'Chapter XXIX',
+                    url: 'tracks/Tom Sawyer/29.mp3'
+                }),
+                Map({
+                    artist: 'Mark Twain',
+                    album: 'Tom Sawyer',
+                    track: 15,
+                    title: 'Chapter XXX',
+                    url: 'tracks/Tom Sawyer/30.mp3'
+                }),
+                Map({
+                    artist: 'Mark Twain',
+                    album: 'Tom Sawyer',
+                    track: 16,
+                    title: 'Chapter XXXI && XXXII',
+                    url: 'tracks/Tom Sawyer/31-32.mp3'
+                }),
+                Map({
+                    artist: 'Mark Twain',
+                    album: 'Tom Sawyer',
+                    track: 17,
+                    title: 'Chapter XXXIII && XXXIV',
+                    url: 'tracks/Tom Sawyer/33-34.mp3'
+                })
+            ])
         }),
         Map({
             label: 'Audio lessons',
