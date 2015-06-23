@@ -23,9 +23,14 @@ class LibraryBox extends Box {
     }
 
     render () {
+        var {filter} = this.props;
         return this.wrap(
             this.getFilterForm(),
-            this.props.tracks.map(track => track.get('title'))
+            this.props.tracks.filter(track => ("string" != typeof filter || filter.length < 1) || track.valueSeq()
+                .filter(value => "string" == typeof value)
+                .map(string => string.toLowerCase())
+                .some(value => value.indexOf(filter) > -1)
+            ).map(track => track.get('title'))
         )
     }
 }
