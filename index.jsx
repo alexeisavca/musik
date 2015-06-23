@@ -65,55 +65,58 @@ Musik.propTypes = {
         setMainNavigation: React.PropTypes.func.isRequired
     }).isRequired
 };
-var libraries = List([
-    Map({
-        label: 'Music',
-        icon: 'music',
-        slug: 'music',
-        tracks: List([
-            Map({
-                artist: 'Pepper, New Beat Fund',
-                album: 'Every Little Thing',
-                track: 1,
-                title: 'Every Little Thing',
-                url: 'tracks/Summertime Party Jamz/01 Every Little Thing.mp3'
-            }),
-            Map({
-                artist: 'New Beat Fund',
-                album: 'Sponge Fingerz',
-                title: 'Halloween Birthdaze',
-                url: 'tracks/Summertime Party Jamz/Halloween Birthdaze.mp3'
-            }),
-            Map({
-                artist: 'New Beat Fund',
-                album: 'Sponge Fingerz',
-                title: 'Sunday Funday',
-                url: 'tracks/Summertime Party Jamz/Sunday Funday.mp3'
-            })
-        ])
-    }),
-    Map({
-        label: 'Audio books',
-        icon: 'book',
-        slug: 'audiobooks',
-        tracks: List()
-    }),
-    Map({
-        label: 'Audio lessons',
-        icon: 'education',
-        slug: 'audiolessons',
-        tracks: List()
-    })
-]);
-
 var flux = new SimpleFlux();
+
+flux.store.setLibraries(
+    List([
+        Map({
+            label: 'Music',
+            icon: 'music',
+            slug: 'music',
+            tracks: List([
+                Map({
+                    artist: 'Pepper, New Beat Fund',
+                    album: 'Every Little Thing',
+                    track: 1,
+                    title: 'Every Little Thing',
+                    url: 'tracks/Summertime Party Jamz/01 Every Little Thing.mp3'
+                }),
+                Map({
+                    artist: 'New Beat Fund',
+                    album: 'Sponge Fingerz',
+                    title: 'Halloween Birthdaze',
+                    url: 'tracks/Summertime Party Jamz/Halloween Birthdaze.mp3'
+                }),
+                Map({
+                    artist: 'New Beat Fund',
+                    album: 'Sponge Fingerz',
+                    title: 'Sunday Funday',
+                    url: 'tracks/Summertime Party Jamz/Sunday Funday.mp3'
+                })
+            ])
+        }),
+        Map({
+            label: 'Audio books',
+            icon: 'book',
+            slug: 'audiobooks',
+            tracks: List()
+        }),
+        Map({
+            label: 'Audio lessons',
+            icon: 'education',
+            slug: 'audiolessons',
+            tracks: List()
+        })
+    ])
+);
+
 flux.setOnStoreUpdateListener(function(){
     React.render(
         <module.exports
-            libraries={libraries}
+            libraries={flux.store.getLibraries()}
             currentMainNavigationItem={flux.store.getCurrentMainNavigationItem()}
             actions={flux.actions}
             boxFilter={flux.store.getBoxFilter()}
-            />, document.getElementById('the-container')
+        />, document.getElementById('the-container')
     );
 });
