@@ -23,7 +23,7 @@ module.exports = class Store {
         if('undefined' != typeof actions[action]){
             this[actions[action]](payload);
         } else {
-            console.warn(`No hanlder for the ${action} action`);
+            console.warn(`No handler for the ${action} action`);
         }
     }
 };
