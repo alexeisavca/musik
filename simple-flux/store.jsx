@@ -17,7 +17,6 @@ module.exports = class Store {
         var boxFilter;
         this.getBoxFilter = () => boxFilter;
         this.setBoxFilter = function(newVal){
-            console.log('set box filter to ' + newVal);
             boxFilter = newVal;
             onUpdateListener();
         }
