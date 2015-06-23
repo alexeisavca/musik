@@ -107,6 +107,7 @@ flux.setOnStoreUpdateListener(function(){
             libraries={libraries}
             currentMainNavigationItem={flux.store.getCurrentMainNavigationItem()}
             actions={flux.actions}
+            boxFilter={flux.store.getBoxFilter()}
             />, document.getElementById('the-container')
     );
 });
