@@ -1,11 +1,12 @@
 var React = require('react');
+var PureRenderComponent = require('../pure-render-component');
 var __ = require('../../tools/translate');
 var Item = require('./item');
 var {List} = require('immutable');
 require('./style');
 
 module.exports = MainNavigation;
-class MainNavigation extends React.Component{
+class MainNavigation extends PureRenderComponent{
     getCurrentItemSlug (){
         var {libraries, currentItem} = this.props;
         if(libraries.some(library => library.get('slug') == currentItem) || 'add-library' == currentItem){

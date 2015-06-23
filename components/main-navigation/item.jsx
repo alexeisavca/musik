@@ -1,7 +1,8 @@
 var React = require('react');
+var PureRenderComponent = require('../pure-render-component');
 var cn = require('classnames');
 module.exports = MainNavigationItem;
-class MainNavigationItem extends React.Component {
+class MainNavigationItem extends PureRenderComponent {
     setActive (){ this.props.setMainNavigation(this.props.slug); }
 
     render() {
