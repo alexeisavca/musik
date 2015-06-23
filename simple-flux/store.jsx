@@ -13,12 +13,22 @@ module.exports = class Store {
             currentMainNavigationItem = newVal;
             onUpdateListener();
         };
+
+        var boxFilter;
+        this.getBoxFilter = () => boxFilter;
+        this.setBoxFilter = function(newVal){
+            boxFilter = newVal;
+            onUpdateListener();
+        }
     }
 
     process(action, payload){
         switch(action){
             case constants.CURRENT_MAIN_NAVIGATION_ITEM_CHANGED:
                 this.setCurrentMainNavigationIItem(payload);
+                break;
+            case constants.BOX_FILTER_UPDATED:
+                this.setBoxFilter(payload);
                 break;
         }
     }

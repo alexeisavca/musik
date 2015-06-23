@@ -1,32 +1,15 @@
 var React = require('react');
 var __ = require('../../tools/translate');
-var {Map} = require('immutable');
+var obj2arr = require('../../tools/obj2arr');
+var PureRenderComponent = require('../pure-render-component');
 require('./style');
 module.exports = Box;
-class Box extends React.Component {
-    getFilterForm (){
-        return (
-            <form>
-                <input
-                    type="text"
-                    className="form-control"
-                    placeholder={__('Search')}
-                    value={this.props.filter}
-                    />
-            </form>
-        )
-    }
-
-    wrap (children){
+class Box extends PureRenderComponent {
+    wrap (){
         return (
             <div className="col-md-2 col-sm-5 musik-main-navigation-box">
-                {this.getFilterForm()}
-                {children}
+                {obj2arr(arguments)}
             </div>
         );
     }
 }
-Box.propTypes = {
-    filter: React.PropTypes.string,
-    library: React.PropTypes.instanceOf(Map).isRequired
-};
