@@ -1,4 +1,8 @@
 var constants = require('./constants');
+var actions = {
+    [constants.CURRENT_MAIN_NAVIGATION_ITEM_CHANGED]: 'setCurrentMainNavigationItem',
+    [constants.BOX_FILTER_UPDATED]: 'setBoxFilter'
+};
 module.exports = class Store {
     createProperty (capitalizedName){
         var value;
@@ -16,13 +20,10 @@ module.exports = class Store {
     }
 
     process(action, payload){
-        switch(action){
-            case constants.CURRENT_MAIN_NAVIGATION_ITEM_CHANGED:
-                this.setCurrentMainNavigationIItem(payload);
-                break;
-            case constants.BOX_FILTER_UPDATED:
-                this.setBoxFilter(payload);
-                break;
+        if('undefined' != typeof actions[action]){
+            this[actions[action]](payload);
+        } else {
+            console.warn(`No hanlder for the ${action} action`);
         }
     }
 };
