@@ -17,6 +17,7 @@ module.exports = class Store {
         var boxFilter;
         this.getBoxFilter = () => boxFilter;
         this.setBoxFilter = function(newVal){
+            console.log('set box filter to ' + newVal);
             boxFilter = newVal;
             onUpdateListener();
         }
@@ -26,6 +27,9 @@ module.exports = class Store {
         switch(action){
             case constants.CURRENT_MAIN_NAVIGATION_ITEM_CHANGED:
                 this.setCurrentMainNavigationIItem(payload);
+                break;
+            case constants.BOX_FILTER_UPDATED:
+                this.setBoxFilter(payload);
                 break;
         }
     }

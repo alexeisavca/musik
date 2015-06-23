@@ -9,7 +9,7 @@ module.exports = class Actions{
     }
 
     setBoxFilter(str){
-        this.dispatch(constants.BOX_LISTENER_UPDATED, str);
+        this.dispatch(constants.BOX_FILTER_UPDATED, str);
     }
 
 };
