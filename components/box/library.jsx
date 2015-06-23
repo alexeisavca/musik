@@ -1,6 +1,7 @@
 var React = require('react');
 var Box = require('./index');
 var __ = require('../../tools/translate');
+var {List} = require('immutable');
 module.exports = LibraryBox;
 class LibraryBox extends Box {
     updateBoxFilter (e){
@@ -24,7 +25,7 @@ class LibraryBox extends Box {
     render () {
         return this.wrap(
             this.getFilterForm(),
-            this.props.library.get('tracks').map(track => track.get('title'))
+            this.props.tracks.map(track => track.get('title'))
         )
     }
 }
@@ -32,5 +33,5 @@ class LibraryBox extends Box {
 LibraryBox.propTypes = {
     filter: React.PropTypes.string,
     setBoxFilter: React.PropTypes.func.isRequired,
-    library: React.PropTypes.instanceOf(Map).isRequired
+    tracks: React.PropTypes.instanceOf(List).isRequired
 };
