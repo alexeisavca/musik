@@ -22,15 +22,29 @@ class LibraryBox extends Box {
         )
     }
 
-    render () {
+    maybeFilterTracks (tracks){
         var {filter} = this.props;
+        if("string" != typeof filter || filter.length < 1){
+            return tracks;
+        } else {
+            filter = filter.toLowerCase().trim();
+            //filter those tracks
+            return tracks.filter(track =>
+                //that have string properties
+                track.valueSeq().filter(value => "string" == typeof value)
+                //which, when lowercase
+                .map(string => string.toLowerCase())
+                //contain the filter
+                .some(value => value.indexOf(filter) > -1)
+            )
+        }
+    }
+
+    render () {
+        var {tracks} = this.props;
         return this.wrap(
             this.getFilterForm(),
-            this.props.tracks.filter(track => ("string" != typeof filter || filter.length < 1) || track.valueSeq()
-                .filter(value => "string" == typeof value)
-                .map(string => string.toLowerCase())
-                .some(value => value.indexOf(filter) > -1)
-            ).map(track => track.get('title'))
+            this.maybeFilterTracks(tracks).map(track => track.get('title'))
         )
     }
 }
