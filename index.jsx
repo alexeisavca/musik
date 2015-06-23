@@ -2,7 +2,6 @@ var React = require('react');
 var __ = require('./tools/translate');
 var MainNavigation = require("./components/main-navigation");
 var Playlist = require('./components/playlist');
-var SearchBox = require('./components/box/search');
 var AddLibraryBox = require('./components/box/add-library');
 var LibraryBox = require('./components/box/library');
 var {List, Map} = require('immutable');
@@ -12,18 +11,25 @@ var SimpleFlux = require('./simple-flux');
 module.exports = Musik;
 class Musik extends React.Component{
     getMainNavigationBox(){
-        var {libraries, currentMainNavigationItem, boxFilter} = this.props;
+        var {libraries, currentMainNavigationItem, boxFilter, actions} = this.props;
         if(libraries.some(library => library.get('slug') == currentMainNavigationItem)){
             return (
                 <LibraryBox
                     filter={boxFilter}
-                    library={libraries.find(library => library.get('slug') == currentMainNavigationItem)}
+                    setBoxFilter={actions.setBoxFilter.bind(actions)}
+                    tracks={libraries.find(library => library.get('slug') == currentMainNavigationItem).get('tracks')}
                 />
             );
         } else if('add-library' == currentMainNavigationItem){
             return <AddLibraryBox/>;
         } else {
-            return <SearchBox filter={boxFilter}/>
+            return (
+                <LibraryBox
+                    filter={boxFilter}
+                    setBoxFilter={actions.setBoxFilter.bind(actions)}
+                    tracks={libraries.flatMap(library => library.get('tracks'))}
+                />
+            )
         }
     }
 
