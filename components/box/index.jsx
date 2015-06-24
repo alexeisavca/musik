@@ -5,10 +5,10 @@ var PureRenderComponent = require('../pure-render-component');
 require('./style');
 module.exports = Box;
 class Box extends PureRenderComponent {
-    wrap (){
+    wrap (children){
         return (
             <div className="col-md-2 col-sm-5 musik-main-navigation-box">
-                {obj2arr(arguments)}
+                {children}
             </div>
         );
     }
