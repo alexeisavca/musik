@@ -1,9 +1,10 @@
 var constants = require('./constants');
 var actions = {
     [constants.CURRENT_MAIN_NAVIGATION_ITEM_CHANGED]: 'setCurrentMainNavigationItem',
-    [constants.BOX_FILTER_UPDATED]: 'setBoxFilter'
+    [constants.BOX_FILTER_UPDATED]: 'setBoxFilter',
+    [constants.PLAYLIST_CREATED]: 'appendPlaylist'
 };
-var {List} = require('immutable');
+var {List, Map} = require('immutable');
 module.exports = class Store {
     createProperty (capitalizedName){
         var value;
@@ -20,6 +21,10 @@ module.exports = class Store {
         this.setCurrentMainNavigationItem('search');
         this.setLibraries(List());
         this.setPlaylists(List());
+    }
+
+    appendPlaylist(playlist){
+        this.setPlaylists(this.getPlaylists().push(playlist));
     }
 
     process(action, payload){
