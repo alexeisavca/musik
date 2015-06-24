@@ -6,7 +6,7 @@ module.exports = PlaylistNavigation;
 class PlaylistNavigation extends PureRenderComponent {
     render() {
         return (
-            <div className="col-md-12">
+            <div className="col-md-12" onDoubleClick={this.props.createPlaylist}>
                 <ul className="nav nav-tabs">
                     <li>&nbsp;</li>
                     {this.props.playlists.map((playlist, index) => (
