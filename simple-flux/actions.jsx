@@ -18,4 +18,8 @@ module.exports = class Actions{
             tracks: List()
         }));
     }
+
+    setCurrentPlaylist(index){
+        this.dispatch(constants.CURRENT_PLAYLIST_CHANGED, index);
+    }
 };
