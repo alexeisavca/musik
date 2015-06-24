@@ -8,7 +8,8 @@ module.exports = class extends PureRenderComponent {
         }
     }
 
-    toggleFolded (){
+    toggleFolded (event){
+        event.stopPropagation();
         this.setState({unfolded: !this.state.unfolded});
     }
 };
