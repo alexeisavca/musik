@@ -44,7 +44,44 @@ class LibraryBox extends Box {
         var {tracks} = this.props;
         return this.wrap(
             this.getFilterForm(),
-            this.maybeFilterTracks(tracks).map(track => track.get('title'))
+            <ul className="media-list">
+                {this.maybeFilterTracks(tracks).groupBy(track => track.get('artist')).map(tracksByArtist => (
+                    <li className="media">
+                        <div className="media-left">
+                            <a href="#">
+                                <img className="media-object" src="..." alt="..."/>
+                            </a>
+                        </div>
+                        <div className="media-body">
+                            <h4 className="media-heading">{tracksByArtist.get(0).get('artist')}</h4>
+                            {tracksByArtist.groupBy(tracksByArtist => tracksByArtist.get('album')).map(tracksByAlbum => (
+                                <div className="media">
+                                    <div className="media-left">
+                                        <a href="#">
+                                            <img className="media-object" src="..." alt="..."/>
+                                        </a>
+                                    </div>
+                                    <div className="media-body">
+                                        <h4 className="media-heading">{tracksByAlbum.get(0).get('album')}</h4>
+                                        {tracksByAlbum.map(track => (
+                                            <div className="media">
+                                                <div className="media-left">
+                                                    <a href="#">
+                                                        <img className="media-object" src="..." alt="..."/>
+                                                    </a>
+                                                </div>
+                                                <div className="media-body">
+                                                    <h4 className="media-heading">{track.get('title')}</h4>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </li>
+                ))}
+            </ul>
         )
     }
 }
