@@ -247,6 +247,8 @@ flux.setOnStoreUpdateListener(function(){
         <module.exports
             libraries={flux.store.getLibraries()}
             currentMainNavigationItem={flux.store.getCurrentMainNavigationItem()}
+            playlists={flux.store.getPlaylists()}
+            currentPlaylist={flux.store.getCurrentPlaylist()}
             actions={flux.actions}
             boxFilter={flux.store.getBoxFilter()}
         />, document.getElementById('the-container')
