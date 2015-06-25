@@ -1,4 +1,5 @@
 var constants = require('./constants');
+var {List, Map} = require('immutable');
 module.exports = class Actions{
     constructor(dispatchCb){
         this.dispatch = dispatchCb;
@@ -12,4 +13,13 @@ module.exports = class Actions{
         this.dispatch(constants.BOX_FILTER_UPDATED, str);
     }
 
+    createPlaylist(){
+        this.dispatch(constants.PLAYLIST_CREATED, Map({
+            tracks: List()
+        }));
+    }
+
+    setCurrentPlaylist(index){
+        this.dispatch(constants.CURRENT_PLAYLIST_CHANGED, index);
+    }
 };

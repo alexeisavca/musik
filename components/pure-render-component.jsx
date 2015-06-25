@@ -1,6 +1,13 @@
 var React = require('react');
+function shallowDiff (a,b){
+    if(a && b && "object" == typeof a && "object" == typeof b){
+        return Object.keys(a).some(key => a[key] != b[key]);
+    } else {
+        return a != b;
+    }
+}
 module.exports = class extends React.Component {
-    shouldComponentUpdate (nextProps){
-        return Object.keys(this.props).some(key => this.props[key] != nextProps[key])
+    shouldComponentUpdate (nextProps, nextState){
+        return shallowDiff(this.props, nextProps) || shallowDiff(this.state, nextState);
     }
 };
