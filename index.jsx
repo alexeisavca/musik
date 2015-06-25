@@ -44,7 +44,12 @@ class Musik extends React.Component{
                 {this.getMainNavigationBox()}
                 <div className="col-md-9 col-sm-6">
                     <div className="row">
-                        <PlaylistNavigation/>
+                        <PlaylistNavigation
+                            playlists={this.props.playlists}
+                            currentPlaylist={this.props.currentPlaylist}
+                            createPlaylist={this.props.actions.createPlaylist.bind(this.props.actions)}
+                            setCurrentPlaylist={this.props.actions.setCurrentPlaylist.bind(this.props.actions)}
+                        />
                         <div className="col-md-12">
                             <Playlist/>
                         </div>
@@ -58,10 +63,15 @@ class Musik extends React.Component{
     }
 }
 Musik.propTypes = {
-    libraries: React.PropTypes.instanceOf(List),
+    libraries: React.PropTypes.instanceOf(List).isRequired,
     currentMainNavigationItem: React.PropTypes.string,
+    playlists: React.PropTypes.instanceOf(List).isRequired,
+    currentPlaylist: React.PropTypes.number,
     boxFilter: React.PropTypes.string,
     actions: React.PropTypes.shape({
-        setMainNavigation: React.PropTypes.func.isRequired
+        setMainNavigation: React.PropTypes.func.isRequired,
+        setBoxFilter: React.PropTypes.func.isRequired,
+        createPlaylist: React.PropTypes.func.isRequired,
+        setCurrentPlaylist: React.PropTypes.func.isRequired
     }).isRequired
 };
