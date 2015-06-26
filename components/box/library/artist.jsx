@@ -37,6 +37,6 @@ class Artist extends Unfoldable {
     }
 }
 Artist.propTypes = {
-    name: React.PropTypes.string,
-    tracks: React.PropTypes.instanceOf(List)
+    name: React.PropTypes.string.isRequired,
+    tracks: React.PropTypes.instanceOf(List).isRequired
 };
