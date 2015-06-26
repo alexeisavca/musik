@@ -4,7 +4,8 @@ var actions = {
     [constants.BOX_FILTER_UPDATED]: 'setBoxFilter',
     [constants.PLAYLIST_CREATED]: 'appendPlaylist',
     [constants.CURRENT_PLAYLIST_CHANGED]: 'setCurrentPlaylist',
-    [constants.PLAYLIST_TRACKS_UPDATED]: 'updatePlaylistTracks'
+    [constants.PLAYLIST_TRACKS_UPDATED]: 'updatePlaylistTracks',
+    [constants.CURRENT_TRACK_CHANGED]: 'setCurrentTrack'
 };
 var {List, Map} = require('immutable');
 module.exports = class Store {
@@ -18,7 +19,8 @@ module.exports = class Store {
     }
 
     constructor(){
-        ['OnUpdateListener', 'CurrentMainNavigationItem', 'BoxFilter', 'Libraries', 'Playlists', 'CurrentPlaylist'].forEach(this.createProperty.bind(this));
+        ['OnUpdateListener', 'CurrentMainNavigationItem', 'BoxFilter', 'Libraries', 'Playlists', 'CurrentPlaylist',
+        'CurrentTrack'].forEach(this.createProperty.bind(this));
         this.setOnUpdateListener(function(){});
         this.setCurrentMainNavigationItem('search');
         this.setLibraries(List());

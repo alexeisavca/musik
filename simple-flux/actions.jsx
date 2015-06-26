@@ -29,4 +29,8 @@ module.exports = class Actions{
             tracks: tracks
         });
     }
+
+    setCurrentTrack(track){
+        this.dispatch(constants.CURRENT_TRACK_CHANGED, track);
+    }
 };
