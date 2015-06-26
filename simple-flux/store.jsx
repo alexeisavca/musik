@@ -21,7 +21,10 @@ module.exports = class Store {
         this.setOnUpdateListener(function(){});
         this.setCurrentMainNavigationItem('search');
         this.setLibraries(List());
-        this.setPlaylists(List());
+        this.setPlaylists(List([Map({
+            tracks: List()
+        })]));
+        this.setCurrentPlaylist(0);
     }
 
     appendPlaylist(playlist){
