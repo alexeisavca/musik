@@ -81,7 +81,6 @@ Musik.propTypes = {
     }).isRequired,
     currentTrack: React.PropTypes.instanceOf(Map)
 };
-
 var flux = new SimpleFlux();
 
 flux.store.setLibraries(
@@ -258,6 +257,7 @@ flux.setOnStoreUpdateListener(function(){
             currentPlaylist={flux.store.getCurrentPlaylist()}
             actions={flux.actions}
             boxFilter={flux.store.getBoxFilter()}
-            />, document.getElementById('the-container')
+            currentTrack={flux.store.getCurrentTrack()}
+        />, document.getElementById('the-container')
     );
 });
