@@ -5,7 +5,7 @@ class Player extends React.Component {
     render() {
         var {track} = this.props;
         return (
-            <audio src={track && track.get('url')}/>
+            <audio src={track && track.get('url')} controls autoplay/>
         )
     }
 }
