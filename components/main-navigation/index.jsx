@@ -48,6 +48,7 @@ class MainNavigation extends PureRenderComponent{
                     active={this.isActive('add-library')}
                     setMainNavigation={this.props.setMainNavigation}
                 />
+                <div className="stretcher"/>
             </div>
         )
     }
