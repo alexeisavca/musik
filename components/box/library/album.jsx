@@ -7,15 +7,20 @@ class Album extends Unfoldable {
     getTracks (){
         if(this.state.unfolded){
             return this.props.tracks.map(track => (
-                <Track key={track.get('track')} name={track.get('title')}/>
+                <Track key={track.get('track')} name={track.get('title')} track={track}/>
             )).toArray()
         }
+    }
+
+    onDragStart (e){
+        e.dataTransfer.effectAllowed = 'copy';
+        e.dataTransfer.setData('text/plain', JSON.stringify(this.props.tracks));
     }
 
     render() {
         var {name} = this.props;
         return (
-            <div className="media" onClick={this.toggleFolded.bind(this)}>
+            <div className="media" onClick={this.toggleFolded.bind(this)} draggable onDragStart={this.onDragStart.bind(this)}>
                 <div className="media-left">
                     <a href="javascript:void(0)">
                         <img className="media-object" src="https://placeholdit.imgix.net/~text?txtsize=9&txt=32%C3%9732&w=32&h=32" alt={name}/>
