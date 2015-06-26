@@ -6,7 +6,7 @@ var AddLibraryBox = require('./components/box/add-library');
 var LibraryBox = require('./components/box/library');
 var {List, Map} = require('immutable');
 var PlaylistNavigation = require('./components/playlist-navigation');
-var Player = require('./components/placeholder')('player');
+var Player = require('./components/player');
 var SimpleFlux = require('./simple-flux');
 module.exports = Musik;
 class Musik extends React.Component{
@@ -51,10 +51,14 @@ class Musik extends React.Component{
                             setCurrentPlaylist={this.props.actions.setCurrentPlaylist.bind(this.props.actions)}
                         />
                         <div className="col-md-12">
-                            <Playlist/>
+                            <Playlist
+                                tracks={this.props.playlists.getIn([this.props.currentPlaylist, 'tracks'])}
+                                updatePlaylistTracks={this.props.actions.updatePlaylistTracks.bind(this.props.actions, this.props.currentPlaylist)}
+                                setCurrentTrack={this.props.actions.setCurrentTrack.bind(this.props.actions)}
+                            />
                         </div>
                         <div className="col-md-12">
-                            <Player/>
+                            <Player track={this.props.currentTrack}/>
                         </div>
                     </div>
                 </div>
@@ -66,12 +70,14 @@ Musik.propTypes = {
     libraries: React.PropTypes.instanceOf(List).isRequired,
     currentMainNavigationItem: React.PropTypes.string,
     playlists: React.PropTypes.instanceOf(List).isRequired,
-    currentPlaylist: React.PropTypes.number,
+    currentPlaylist: React.PropTypes.number.isRequired,
     boxFilter: React.PropTypes.string,
     actions: React.PropTypes.shape({
         setMainNavigation: React.PropTypes.func.isRequired,
         setBoxFilter: React.PropTypes.func.isRequired,
         createPlaylist: React.PropTypes.func.isRequired,
-        setCurrentPlaylist: React.PropTypes.func.isRequired
-    }).isRequired
+        setCurrentPlaylist: React.PropTypes.func.isRequired,
+        updatePlaylistTracks: React.PropTypes.func.isRequired
+    }).isRequired,
+    currentTrack: React.PropTypes.instanceOf(Map)
 };
