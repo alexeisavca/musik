@@ -13,10 +13,16 @@ class Artist extends Unfoldable {
         }
     }
 
+    onDragStart (e){
+        e.dataTransfer.effectAllowed = 'copy';
+        e.dataTransfer.setData('text/plain', JSON.stringify(this.props.tracks));
+    }
+
     render() {
         var {name} = this.props;
         return (
-            <li className="media" onClick={this.toggleFolded.bind(this)}>
+            <li
+                className="media" onClick={this.toggleFolded.bind(this)} draggable={true} onDragStart={this.onDragStart.bind(this)}>
                 <div className="media-left">
                     <a href="javascript:void(0)">
                         <img className="media-object" src="https://placeholdit.imgix.net/~text?txtsize=9&txt=32%C3%9732&w=32&h=32" alt={name}/>
