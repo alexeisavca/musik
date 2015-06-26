@@ -22,4 +22,11 @@ module.exports = class Actions{
     setCurrentPlaylist(index){
         this.dispatch(constants.CURRENT_PLAYLIST_CHANGED, index);
     }
+
+    updatePlaylistTracks(index, tracks) {
+        this.dispatch(constants.PLAYLIST_TRACKS_UPDATED, {
+            index: index,
+            tracks: tracks
+        });
+    }
 };

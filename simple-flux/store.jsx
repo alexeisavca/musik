@@ -3,7 +3,8 @@ var actions = {
     [constants.CURRENT_MAIN_NAVIGATION_ITEM_CHANGED]: 'setCurrentMainNavigationItem',
     [constants.BOX_FILTER_UPDATED]: 'setBoxFilter',
     [constants.PLAYLIST_CREATED]: 'appendPlaylist',
-    [constants.CURRENT_PLAYLIST_CHANGED]: 'setCurrentPlaylist'
+    [constants.CURRENT_PLAYLIST_CHANGED]: 'setCurrentPlaylist',
+    [constants.PLAYLIST_TRACKS_UPDATED]: 'updatePlaylistTracks'
 };
 var {List, Map} = require('immutable');
 module.exports = class Store {
@@ -30,6 +31,10 @@ module.exports = class Store {
     appendPlaylist(playlist){
         this.setPlaylists(this.getPlaylists().push(playlist));
         this.setCurrentPlaylist(this.getPlaylists().size - 1);
+    }
+
+    updatePlaylistTracks({index, tracks}){
+        this.setPlaylists(this.getPlaylists().setIn([index, 'tracks'], tracks));
     }
 
     process(action, payload){
