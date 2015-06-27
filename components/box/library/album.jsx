@@ -13,6 +13,7 @@ class Album extends Unfoldable {
     }
 
     onDragStart (e){
+        e.stopPropagation();
         e.dataTransfer.effectAllowed = 'copy';
         e.dataTransfer.setData('text/plain', JSON.stringify(this.props.tracks));
     }

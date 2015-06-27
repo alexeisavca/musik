@@ -4,6 +4,7 @@ var {Map} = require('immutable');
 module.exports = Track;
 class Track extends PureRenderComponent {
     onDragStart (e){
+        e.stopPropagation();
         e.dataTransfer.effectAllowed = 'copy';
         e.dataTransfer.setData('text/plain', JSON.stringify([this.props.track]));
     }
