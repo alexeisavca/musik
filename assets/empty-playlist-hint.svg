@@ -1,0 +1,13 @@
+<svg  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <marker id="markerArrow" markerWidth="13" markerHeight="13" refX="2" refY="6" orient="auto">
+            <path d="M2,2 L2,11 L10,6 L2,2" style="fill: #333;" />
+        </marker>
+    </defs>
+
+    <path
+        d="M10,50 A300,250 0 0,1 300,250"
+        style="stroke: #333; stroke-width: 5px; fill: none; marker-end: url(#markerArrow);"
+    />
+</svg>
+

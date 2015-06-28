@@ -4,6 +4,7 @@ var __ = require('../../tools/translate');
 var Immutable = require('immutable');
 var {List} = Immutable;
 var Track = require('./track');
+require('./style');
 module.exports = Playlist;
 class Playlist extends PureRenderComponent {
     onDragOver (e){
@@ -15,7 +16,16 @@ class Playlist extends PureRenderComponent {
         this.props.updatePlaylistTracks(Immutable.fromJS(JSON.parse(e.dataTransfer.getData('text'))));
     }
 
-    render () {
+    getHint (){
+        return (
+            <div className="music-empty-playlist-hint" onDrop={this.onDrop.bind(this)} onDragOver={this.onDragOver.bind(this)}>
+                <img src="assets/empty-playlist-hint.svg" width="640" height="300"/>
+                <strong>{__('Drag you music here')}</strong>
+            </div>
+        )
+    }
+
+    getTracks () {
         return (
             <table className="table" onDrop={this.onDrop.bind(this)} onDragOver={this.onDragOver.bind(this)}>
                 <thead>
@@ -33,6 +43,10 @@ class Playlist extends PureRenderComponent {
                 </tbody>
             </table>
         )
+    }
+
+    render (){
+        return this.props.tracks.isEmpty() ? this.getHint() : this.getTracks();
     }
 }
 Playlist.propTypes = {
