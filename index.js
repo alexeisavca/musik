@@ -26462,7 +26462,7 @@
 	        return (
 	            React.createElement("div", {className: "music-empty-playlist-hint", onDrop: this.append.bind(this), onDragOver: this.onDragOver.bind(this)}, 
 	                React.createElement("img", {src: "assets/empty-playlist-hint.svg", width: "640", height: "300"}), 
-	                React.createElement("strong", null, __('Drag your music here'))
+	                React.createElement("strong", null, __('Drag your music here. Double click to play.'))
 	            )
 	        )
 	    }});
