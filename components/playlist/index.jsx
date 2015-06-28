@@ -20,7 +20,7 @@ class Playlist extends PureRenderComponent {
         return (
             <div className="music-empty-playlist-hint" onDrop={this.onDrop.bind(this)} onDragOver={this.onDragOver.bind(this)}>
                 <img src="assets/empty-playlist-hint.svg" width="640" height="300"/>
-                <strong>{__('Drag you music here')}</strong>
+                <strong>{__('Drag your music here')}</strong>
             </div>
         )
     }
