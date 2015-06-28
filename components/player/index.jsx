@@ -8,8 +8,13 @@ class Player extends PureRenderComponent {
     getTheAudioTag (){
         return this.refs.theTag.getDOMNode();
     }
+
     componentDidMount (){
         this.getTheAudioTag().play();
+    }
+
+    stop (){
+        this.props.setCurrentTrack(null);
     }
 
     render() {
@@ -29,7 +34,7 @@ class Player extends PureRenderComponent {
                         </button>
                     </div>
                     <div className="col-sm-3">
-                        <button className="btn btn-block btn-default">
+                        <button className="btn btn-block btn-default" onClick={this.stop.bind(this)}>
                             <i className="glyphicon glyphicon-stop"></i>
                         </button>
                     </div>
@@ -50,5 +55,6 @@ class Player extends PureRenderComponent {
     }
 }
 Player.propTypes = {
-    track: React.PropTypes.instanceOf(Map)
+    track: React.PropTypes.instanceOf(Map),
+    setCurrentTrack: React.PropTypes.func.isRequired
 };
