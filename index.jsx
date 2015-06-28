@@ -55,11 +55,13 @@ class Musik extends React.Component{
                                 tracks={this.props.playlists.getIn([this.props.currentPlaylist, 'tracks'])}
                                 updatePlaylistTracks={this.props.actions.updatePlaylistTracks.bind(this.props.actions, this.props.currentPlaylist)}
                                 setCurrentTrack={this.props.actions.setCurrentTrack.bind(this.props.actions)}
+                                currentTrack={this.props.currentTrack}
                             />
                         </div>
-                        <div className="col-md-12">
-                            <Player track={this.props.currentTrack}/>
-                        </div>
+                        <Player
+                            track={this.props.currentTrack}
+                            setCurrentTrack={this.props.actions.setCurrentTrack.bind(this.props.actions)}
+                        />
                     </div>
                 </div>
             </div>
