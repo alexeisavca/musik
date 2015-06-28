@@ -11,14 +11,15 @@ class Playlist extends PureRenderComponent {
         e.preventDefault();
     }
 
-    onDrop (e){
+    append (e){
         e.preventDefault();
-        this.props.updatePlaylistTracks(Immutable.fromJS(JSON.parse(e.dataTransfer.getData('text'))));
+        var newTracks = Immutable.fromJS(JSON.parse(e.dataTransfer.getData('text')));
+        this.props.updatePlaylistTracks(this.props.tracks.concat(newTracks));
     }
 
     getHint (){
         return (
-            <div className="music-empty-playlist-hint" onDrop={this.onDrop.bind(this)} onDragOver={this.onDragOver.bind(this)}>
+            <div className="music-empty-playlist-hint" onDrop={this.append.bind(this)} onDragOver={this.onDragOver.bind(this)}>
                 <img src="assets/empty-playlist-hint.svg" width="640" height="300"/>
                 <strong>{__('Drag your music here')}</strong>
             </div>
@@ -27,7 +28,7 @@ class Playlist extends PureRenderComponent {
 
     getTracks () {
         return (
-            <table className="table" onDrop={this.onDrop.bind(this)} onDragOver={this.onDragOver.bind(this)}>
+            <table className="table" onDrop={this.append.bind(this)} onDragOver={this.onDragOver.bind(this)}>
                 <thead>
                     <tr>
                         <th>{__('Track')}</th>
