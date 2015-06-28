@@ -2,22 +2,34 @@ var React = require('react');
 var PureRenderComponent = require('../pure-render-component');
 var __ = require('../../tools/translate');
 var Immutable = require('immutable');
-var {List} = Immutable;
+var {List, Map} = Immutable;
 var Track = require('./track');
+require('./style');
 module.exports = Playlist;
 class Playlist extends PureRenderComponent {
     onDragOver (e){
         e.preventDefault();
     }
 
-    onDrop (e){
+    append (e){
         e.preventDefault();
-        this.props.updatePlaylistTracks(Immutable.fromJS(JSON.parse(e.dataTransfer.getData('text'))));
+        var newTracks = Immutable.fromJS(JSON.parse(e.dataTransfer.getData('text')));
+        this.props.updatePlaylistTracks(this.props.tracks.concat(newTracks));
     }
 
-    render () {
+    getHint (){
         return (
-            <table className="table" onDrop={this.onDrop.bind(this)} onDragOver={this.onDragOver.bind(this)}>
+            <div className="music-empty-playlist-hint" onDrop={this.append.bind(this)} onDragOver={this.onDragOver.bind(this)}>
+                <img src="assets/empty-playlist-hint.svg" width="640" height="300"/>
+                <strong>{__('Drag your music here')}</strong>
+            </div>
+        )
+    }
+
+    getTracks () {
+        var {tracks, currentTrack} = this.props;
+        return (
+            <table className="table" onDrop={this.append.bind(this)} onDragOver={this.onDragOver.bind(this)}>
                 <thead>
                     <tr>
                         <th>{__('Track')}</th>
@@ -27,16 +39,26 @@ class Playlist extends PureRenderComponent {
                     </tr>
                 </thead>
                 <tbody>
-                    {this.props.tracks.map((track, index) => (
-                        <Track key={index} track={track} setCurrentTrack={this.props.setCurrentTrack}/>
+                    {tracks.map((track, index) => (
+                        <Track
+                            key={index}
+                            track={track}
+                            setCurrentTrack={this.props.setCurrentTrack}
+                            active={currentTrack == track}
+                        />
                     ))}
                 </tbody>
             </table>
         )
     }
+
+    render (){
+        return this.props.tracks.isEmpty() ? this.getHint() : this.getTracks();
+    }
 }
 Playlist.propTypes = {
     tracks: React.PropTypes.instanceOf(List).isRequired,
+    currentTrack: React.PropTypes.instanceOf(Map),
     updatePlaylistTracks: React.PropTypes.func.isRequired,
     setCurrentTrack: React.PropTypes.func.isRequired
 };
