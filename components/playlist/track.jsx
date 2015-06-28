@@ -1,5 +1,6 @@
 var React = require('react');
 var {Map} = require('immutable');
+var cn = require("classnames");
 module.exports = Track;
 class Track extends React.Component {
     playTrack (){
@@ -7,9 +8,9 @@ class Track extends React.Component {
     }
 
     render() {
-        var {track} = this.props;
+        var {track, active} = this.props;
         return (
-            <tr onDoubleClick={this.playTrack.bind(this)}>
+            <tr className={cn({active: active})} onDoubleClick={this.playTrack.bind(this)}>
                 <th scope="row">{track.get('track')}</th>
                 <td>{track.get('title')}</td>
                 <td>{track.get('artist')}</td>
@@ -20,5 +21,6 @@ class Track extends React.Component {
 }
 Track.propTypes = {
     track: React.PropTypes.instanceOf(Map).isRequired,
-    setCurrentTrack: React.PropTypes.func.isRequired
+    setCurrentTrack: React.PropTypes.func.isRequired,
+    active: React.PropTypes.bool
 };

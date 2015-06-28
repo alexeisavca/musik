@@ -2,7 +2,7 @@ var React = require('react');
 var PureRenderComponent = require('../pure-render-component');
 var __ = require('../../tools/translate');
 var Immutable = require('immutable');
-var {List} = Immutable;
+var {List, Map} = Immutable;
 var Track = require('./track');
 require('./style');
 module.exports = Playlist;
@@ -27,6 +27,7 @@ class Playlist extends PureRenderComponent {
     }
 
     getTracks () {
+        var {tracks, currentTrack} = this.props;
         return (
             <table className="table" onDrop={this.append.bind(this)} onDragOver={this.onDragOver.bind(this)}>
                 <thead>
@@ -38,8 +39,13 @@ class Playlist extends PureRenderComponent {
                     </tr>
                 </thead>
                 <tbody>
-                    {this.props.tracks.map((track, index) => (
-                        <Track key={index} track={track} setCurrentTrack={this.props.setCurrentTrack}/>
+                    {tracks.map((track, index) => (
+                        <Track
+                            key={index}
+                            track={track}
+                            setCurrentTrack={this.props.setCurrentTrack}
+                            active={currentTrack == track}
+                        />
                     ))}
                 </tbody>
             </table>
@@ -52,6 +58,7 @@ class Playlist extends PureRenderComponent {
 }
 Playlist.propTypes = {
     tracks: React.PropTypes.instanceOf(List).isRequired,
+    currentTrack: React.PropTypes.instanceOf(Map),
     updatePlaylistTracks: React.PropTypes.func.isRequired,
     setCurrentTrack: React.PropTypes.func.isRequired
 };
