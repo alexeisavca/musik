@@ -55,7 +55,7 @@
 	var Player = __webpack_require__(185);
 	var SimpleFlux = __webpack_require__(187);
 	module.exports = Musik;
-	var ____ClassOy=React.Component;for(var ____ClassOy____Key in ____ClassOy){if(____ClassOy.hasOwnProperty(____ClassOy____Key)){Musik[____ClassOy____Key]=____ClassOy[____ClassOy____Key];}}var ____SuperProtoOf____ClassOy=____ClassOy===null?null:____ClassOy.prototype;Musik.prototype=Object.create(____SuperProtoOf____ClassOy);Musik.prototype.constructor=Musik;Musik.__superConstructor__=____ClassOy;function Musik(){"use strict";if(____ClassOy!==null){____ClassOy.apply(this,arguments);}}
+	var ____Class0=React.Component;for(var ____Class0____Key in ____Class0){if(____Class0.hasOwnProperty(____Class0____Key)){Musik[____Class0____Key]=____Class0[____Class0____Key];}}var ____SuperProtoOf____Class0=____Class0===null?null:____Class0.prototype;Musik.prototype=Object.create(____SuperProtoOf____Class0);Musik.prototype.constructor=Musik;Musik.__superConstructor__=____Class0;function Musik(){"use strict";if(____Class0!==null){____Class0.apply(this,arguments);}}
 	    Object.defineProperty(Musik.prototype,"getMainNavigationBox",{writable:true,configurable:true,value:function(){"use strict";
 	        var $__0=     this.props,libraries=$__0.libraries,currentMainNavigationItem=$__0.currentMainNavigationItem,boxFilter=$__0.boxFilter,actions=$__0.actions;
 	        if(libraries.some(function(library)  {return library.get('slug') == currentMainNavigationItem;})){
@@ -20621,11 +20621,11 @@
 	        return a != b;
 	    }
 	}
-	module.exports = (function(){var ____Class3O=React.Component;for(var ____Class3O____Key in ____Class3O){if(____Class3O.hasOwnProperty(____Class3O____Key)){____Class3N[____Class3O____Key]=____Class3O[____Class3O____Key];}}var ____SuperProtoOf____Class3O=____Class3O===null?null:____Class3O.prototype;____Class3N.prototype=Object.create(____SuperProtoOf____Class3O);____Class3N.prototype.constructor=____Class3N;____Class3N.__superConstructor__=____Class3O;function ____Class3N(){"use strict";if(____Class3O!==null){____Class3O.apply(this,arguments);}}
-	    Object.defineProperty(____Class3N.prototype,"shouldComponentUpdate",{writable:true,configurable:true,value:function(nextProps, nextState){"use strict";
+	module.exports = (function(){var ____Class3=React.Component;for(var ____Class3____Key in ____Class3){if(____Class3.hasOwnProperty(____Class3____Key)){____Class2[____Class3____Key]=____Class3[____Class3____Key];}}var ____SuperProtoOf____Class3=____Class3===null?null:____Class3.prototype;____Class2.prototype=Object.create(____SuperProtoOf____Class3);____Class2.prototype.constructor=____Class2;____Class2.__superConstructor__=____Class3;function ____Class2(){"use strict";if(____Class3!==null){____Class3.apply(this,arguments);}}
+	    Object.defineProperty(____Class2.prototype,"shouldComponentUpdate",{writable:true,configurable:true,value:function(nextProps, nextState){"use strict";
 	        return shallowDiff(this.props, nextProps) || shallowDiff(this.state, nextState);
 	    }});
-	return ____Class3N;})();
+	return ____Class2;})();
 
 /***/ },
 /* 162 */
@@ -25963,19 +25963,19 @@
 
 	var React = __webpack_require__(2);
 	var PureRenderComponent = __webpack_require__(161);
-	module.exports = (function(){for(var PureRenderComponent____Key in PureRenderComponent){if(PureRenderComponent.hasOwnProperty(PureRenderComponent____Key)){____Class3S[PureRenderComponent____Key]=PureRenderComponent[PureRenderComponent____Key];}}var ____SuperProtoOfPureRenderComponent=PureRenderComponent===null?null:PureRenderComponent.prototype;____Class3S.prototype=Object.create(____SuperProtoOfPureRenderComponent);____Class3S.prototype.constructor=____Class3S;____Class3S.__superConstructor__=PureRenderComponent;
-	        function ____Class3S(props){"use strict";
+	module.exports = (function(){for(var PureRenderComponent____Key in PureRenderComponent){if(PureRenderComponent.hasOwnProperty(PureRenderComponent____Key)){____Class7[PureRenderComponent____Key]=PureRenderComponent[PureRenderComponent____Key];}}var ____SuperProtoOfPureRenderComponent=PureRenderComponent===null?null:PureRenderComponent.prototype;____Class7.prototype=Object.create(____SuperProtoOfPureRenderComponent);____Class7.prototype.constructor=____Class7;____Class7.__superConstructor__=PureRenderComponent;
+	        function ____Class7(props){"use strict";
 	        PureRenderComponent.call(this,props);
 	        this.state = {
 	            unfolded: false
 	        }
 	    }
 
-	    Object.defineProperty(____Class3S.prototype,"toggleFolded",{writable:true,configurable:true,value:function(event){"use strict";
+	    Object.defineProperty(____Class7.prototype,"toggleFolded",{writable:true,configurable:true,value:function(event){"use strict";
 	        event.stopPropagation();
 	        this.setState({unfolded: !this.state.unfolded});
 	    }});
-	return ____Class3S;})();
+	return ____Class7;})();
 
 /***/ },
 /* 170 */
@@ -26281,7 +26281,7 @@
 	        return (
 	            React.createElement("div", {className: "music-empty-playlist-hint", onDrop: this.append.bind(this), onDragOver: this.onDragOver.bind(this)}, 
 	                React.createElement("img", {src: "assets/empty-playlist-hint.svg", width: "640", height: "300"}), 
-	                React.createElement("strong", null, __('Drag your music here'))
+	                React.createElement("strong", null, __('Drag your music here. Double click to play.'))
 	            )
 	        )
 	    }});
@@ -26331,7 +26331,7 @@
 	var $__0=  __webpack_require__(166),Map=$__0.Map;
 	var cn = __webpack_require__(175);
 	module.exports = Track;
-	var ____Class3P=React.Component;for(var ____Class3P____Key in ____Class3P){if(____Class3P.hasOwnProperty(____Class3P____Key)){Track[____Class3P____Key]=____Class3P[____Class3P____Key];}}var ____SuperProtoOf____Class3P=____Class3P===null?null:____Class3P.prototype;Track.prototype=Object.create(____SuperProtoOf____Class3P);Track.prototype.constructor=Track;Track.__superConstructor__=____Class3P;function Track(){"use strict";if(____Class3P!==null){____Class3P.apply(this,arguments);}}
+	var ____Class4=React.Component;for(var ____Class4____Key in ____Class4){if(____Class4.hasOwnProperty(____Class4____Key)){Track[____Class4____Key]=____Class4[____Class4____Key];}}var ____SuperProtoOf____Class4=____Class4===null?null:____Class4.prototype;Track.prototype=Object.create(____SuperProtoOf____Class4);Track.prototype.constructor=Track;Track.__superConstructor__=____Class4;function Track(){"use strict";if(____Class4!==null){____Class4.apply(this,arguments);}}
 	    Object.defineProperty(Track.prototype,"playTrack",{writable:true,configurable:true,value:function( ){"use strict";
 	        this.props.setCurrentTrack(this.props.track);
 	    }});
@@ -26552,13 +26552,13 @@
 
 	var React = __webpack_require__(2);
 	module.exports = function(name){
-	    return (function(){var ____Class3R=React.Component;for(var ____Class3R____Key in ____Class3R){if(____Class3R.hasOwnProperty(____Class3R____Key)){____Class3Q[____Class3R____Key]=____Class3R[____Class3R____Key];}}var ____SuperProtoOf____Class3R=____Class3R===null?null:____Class3R.prototype;____Class3Q.prototype=Object.create(____SuperProtoOf____Class3R);____Class3Q.prototype.constructor=____Class3Q;____Class3Q.__superConstructor__=____Class3R;function ____Class3Q(){"use strict";if(____Class3R!==null){____Class3R.apply(this,arguments);}}
-	        Object.defineProperty(____Class3Q.prototype,"render",{writable:true,configurable:true,value:function(){"use strict";
+	    return (function(){var ____Class6=React.Component;for(var ____Class6____Key in ____Class6){if(____Class6.hasOwnProperty(____Class6____Key)){____Class5[____Class6____Key]=____Class6[____Class6____Key];}}var ____SuperProtoOf____Class6=____Class6===null?null:____Class6.prototype;____Class5.prototype=Object.create(____SuperProtoOf____Class6);____Class5.prototype.constructor=____Class5;____Class5.__superConstructor__=____Class6;function ____Class5(){"use strict";if(____Class6!==null){____Class6.apply(this,arguments);}}
+	        Object.defineProperty(____Class5.prototype,"render",{writable:true,configurable:true,value:function(){"use strict";
 	            return (
 	                React.createElement("span", null, "Implement ", name)
 	            )
 	        }});
-	    return ____Class3Q;})()
+	    return ____Class5;})()
 	};
 
 /***/ },
@@ -26569,17 +26569,17 @@
 	var Actions = __webpack_require__(188);
 	var Store = __webpack_require__(190);
 	module.exports = (function(){
-	    function ____Class3M($____Class3M_ActionsClass, $____Class3M_StoreClass){"use strict";
-	        var ActionsClass = $____Class3M_ActionsClass || Actions;
-	        var StoreClass = $____Class3M_StoreClass || Store;
+	    function ____Class1($____Class1_ActionsClass, $____Class1_StoreClass){"use strict";
+	        var ActionsClass = $____Class1_ActionsClass || Actions;
+	        var StoreClass = $____Class1_StoreClass || Store;
 	        this.store = new StoreClass();
 	        this.actions = new ActionsClass(this.store.process.bind(this.store));
 	    }
 
-	    Object.defineProperty(____Class3M.prototype,"setOnStoreUpdateListener",{writable:true,configurable:true,value:function(listener){"use strict";
+	    Object.defineProperty(____Class1.prototype,"setOnStoreUpdateListener",{writable:true,configurable:true,value:function(listener){"use strict";
 	        this.store.setOnUpdateListener(listener);
 	    }});
-	return ____Class3M;})();
+	return ____Class1;})();
 
 /***/ },
 /* 188 */
