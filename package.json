@@ -4,7 +4,7 @@
   "description": "A music player for React.js inspired by Amarok(before it went to shit)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
     "classnames": "^2.1.2",
     "css-loader": "^0.15.1",
     "immutable": "^3.7.4",
+    "jest-cli": "^0.4.14",
     "jsx-loader": "^0.13.2",
     "less": "^2.5.1",
     "less-loader": "^2.2.0",
